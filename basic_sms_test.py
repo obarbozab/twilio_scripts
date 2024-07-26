@@ -2,27 +2,8 @@ import os
 from twilio.rest import Client
 import time
 
-#POST https://api.twilio.com/2010-04-01/Accounts/{AccountSid}/Messages
-
-# MASON
-#api_key = "SKcaf6c484883ab5c3cb02932396ef9e7e"
-#api_secret = "xeae26GYLmRa70ZDY9zv30X6ClSfKjvD"
-#account_sid = "ACfc35af18f88bfff0cf5310525ee802f8"
-
-# MINE
-#account_sid = 'ACb8eef81e158531b4d736f37687862342'
-#auth_token = '90872975028b298ab8571513736fd73c'
-
 account_sid = os.getenv("TWILIO_ACCOUNT_SID")
 auth_token = os.getenv("TWILIO_AUTH_TOKEN")
-
-#print(os.getenv("TWILIO_ACCOUNT_SID"))
-#print(os.getenv("TWILIO_AUTH_TOKEN"))
-#print (os.environ)
-#api_key = os.getenv("TWILIO_API_KEY"),
-#api_secret = os.getenv("TWILIO_API_SECRET")
-
-#client = Client(api_key,api_secret,account_sid)
 
 client = Client(account_sid,auth_token)
 
