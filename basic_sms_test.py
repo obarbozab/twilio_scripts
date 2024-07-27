@@ -2,6 +2,7 @@ import os
 from twilio.rest import Client
 import time
 from dotenv import load_dotenv
+import json
 
 load_dotenv() # load environment variables from env file
 
@@ -36,11 +37,20 @@ else:
     print("Message sent successfully")
 
 '''
-print("----------------------------------------")
+# load api response 
+api_response = client.http_client._test_only_last_response
+
+# Parse the JSON response content
+response_data = json.loads(api_response.content)
+
+
+print("---------------------------------------------------------------------------------------")
 print(f" Message SID: {twilio_response.sid} | Status: {twilio_response.status} | Error code: {twilio_response.error_code} | Error message: {twilio_response.error_message}")
-print("----------------------------------------")
+print("---------------------------------------------------------------------------------------")
 print(client.http_client._test_only_last_request)
-print("----------------------------------------")
-print(client.http_client._test_only_last_response)
-print("----------------------------------------")
-print(client.http_client._test_only_last_response.headers['twilio-request-id']) # just the request SID '''
+print("---------------------------------------------------------------------------------------")
+for key, value in response_data.items():
+  print(f"{key}: {value}")
+print("---------------------------------------------------------------------------------------")
+print(f"Request SID: {client.http_client._test_only_last_response.headers['twilio-request-id']}") # just the request SID '''
+print("---------------------------------------------------------------------------------------")
