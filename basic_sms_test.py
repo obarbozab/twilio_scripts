@@ -1,20 +1,24 @@
 import os
 from twilio.rest import Client
 import time
+from dotenv import load_dotenv
 
-account_sid = os.getenv("TWILIO_ACCOUNT_SID")
-auth_token = os.getenv("TWILIO_AUTH_TOKEN")
+load_dotenv() # load environment variables from env file
+
+account_sid = os.environ.get("TWILIO_ACCOUNT_SID")
+auth_token = os.environ.get("TWILIO_AUTH_TOKEN")
 
 client = Client(account_sid,auth_token)
 
 twilio_response = client.messages.create(
   #from_='+18017972087',
   from_= '+12058833479',
-  body =f'help',
+  body =f'test',
   #to ='+16168284433'
-  #to = os.getenv('my_number')
-  to = '+12542218604'
+  to = os.environ.get('my_number')
+  #to = '+12542218604'
 )
+
 
 # Wait for a few seconds to allow the status to update
 #time.sleep(5)  # Delays for 5 seconds. You can change the number to any amount of seconds you need.

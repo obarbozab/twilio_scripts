@@ -1,2 +1,2 @@
-./env
-./twilio_scripts_env
+.env
+twilio_scripts_env/
