@@ -45,7 +45,7 @@ response_data = json.loads(api_response.content)
 
 
 print("---------------------------------------------------------------------------------------")
-print(f" Message SID: {twilio_response.sid} | Status: {twilio_response.status} | Error code: {twilio_response.error_code} | Error message: {twilio_response.error_message}")
+print(f" Message SID: {twilio_response.sid} | Error code: {twilio_response.error_code} | Error message: {twilio_response.error_message}")
 print("---------------------------------------------------------------------------------------")
 print(client.http_client._test_only_last_request)
 print("---------------------------------------------------------------------------------------")
